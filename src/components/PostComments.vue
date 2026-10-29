@@ -1,5 +1,5 @@
 <script setup>
-import { ref, reactive, defineEmits, defineProps, onMounted, watch } from 'vue';
+import { ref, reactive, defineEmits, defineProps, watch } from 'vue';
 import { createComment, getComments, deleteComment } from '../api/comment';
 import Loader from './Loader.vue';
 
@@ -50,7 +50,6 @@ watch(
     if (!newPostId) {
       return;
     }
-
     try {
       isCommentsLoading.value = true;
       commentsError.value = false;
@@ -87,7 +86,7 @@ const handleCommentSubmit = async () => {
     commentData.body = '';
     isWrittingComment.value = false;
   } catch (error) {
-    commentsSubmitError = true;
+    commentsSubmitError.value = true;
     console.error('Помилка при створенні коментаря:', error);
   } finally {
     isSubmitting.value = false;
@@ -115,7 +114,7 @@ const handleCancel = () => {
   isWrittingComment.value = false;
   commentData.name = '';
   commentData.email = '';
-  comments.body = '';
+  commentData.body = '';
   
   errors.name = '';
   errors.email = '';

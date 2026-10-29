@@ -1,5 +1,4 @@
-const BASE_URL = 'https://mate.academy/students-api'; // без слеша в кінці
-
+const BASE_URL = 'https://mate-academy.github.io/fe-students-api';
 const wait = (delay) => {
   return new Promise(resolve => {
     setTimeout(resolve, delay);
@@ -16,7 +15,6 @@ function request(url, method, data) {
       };
     }
 
-    // Безпечне об'єднання базової адреси та шляху
     const fullUrl = `${BASE_URL}${url.startsWith('/') ? '' : '/'}${url}`;
 
     return wait(100)
