@@ -163,7 +163,7 @@ const handleCancel = () => {
   </div>
 
   <div class="block" v-if="isWrittingComment">
-    <p v-if="commentSubmitError" class="has-text-danger mb-3">
+    <p v-if="commentsSubmitError" class="has-text-danger mb-3">
       Failed to add comment. Please try again!
     </p>
     <form @submit.prevent>
